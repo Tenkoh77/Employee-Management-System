@@ -1,144 +1,15 @@
-Employee Management System – Project Proposal & Design Overview
-
+Employee Management System README
 1. Project Summary
-The Employee Management System (EMS) is a full-stack web application designed to streamline HR operations, including employee records, leave management, performance tracking, notifications, and reporting. It is built with a modern React/Next.js frontend, a Node.js/Express backend, and a Microsoft SQL Server (MSSQL) database.
-
 2. System Architecture
-2.1 High-Level Diagram
-  A[Frontend (Next.js/React)] -- REST API --> B[Backend (Node.js/Express)]
-  B -- mssql driver --> C[MSSQL Database]
-  B -- Email/Notifications --> D[Email Service]
-  B -- Scheduled Jobs --> E[Task Scheduler]
-
 3. Backend Design
-3.1 Technology Stack
-- Node.js with Express for RESTful API
-- MSSQL (Microsoft SQL Server) as the database
-- JWT for authentication
-- Joi for validation
-- Nodemailer for email notifications
-- node-cron for scheduled tasks
-
-3.2 API Structure
-
-- Authentication: /api/auth
-- Login, JWT issuance, user session management
-- Employees: /api/employees
-- CRUD operations, search, filtering, role/department assignment
-- Leave Management: /api/leave
-- Apply, approve, reject, view leave applications, leave balances
-- Performance: /api/performance
-- Performance reviews, work logs, analytics
-- Reports: /api/reports
-- Generate and download reports, analytics dashboards
-- Notifications: /api/notifications
-- In-app and email notifications
-
-3.3 Middleware
-
-- Authentication: Validates JWT, checks user status
-- Authorization: Role/permission-based access control
-- Validation: Joi schemas for request validation
-- Error Handling: Centralized error handler for API responses
-
-3.4 Database Layer
-
-- Connection: Managed via a singleton class using the mssql package
-- Querying: Parameterized queries to prevent SQL injection
-- Graceful Shutdown: Closes DB connections on process exit
-
 4. Database Design
- 4.1 Core Tables
-
-- Employees: Personal, contact, employment, and authentication info
-- Departments: Department metadata and manager assignment
-- Roles: Role names, descriptions, and permissions (JSON)
-- LeaveTypes: Types of leave (annual, sick, etc.)
-- LeaveApplications: Leave requests, status, approval workflow
-- LeaveBalances: Tracks leave allocation and usage per employee/year
-- Projects: Project metadata for work logs
-- WorkLogs: Daily work entries for employees
-- PerformanceReviews: Review records, ratings, feedback
-- PerformanceMetrics: Detailed metrics per review
-- Notifications: In-app and email notification records
-- AuditLogs: Tracks changes/actions for compliance
-
-4.2 Relationships
-
-- Employees belong to Departments and Roles
-- LeaveApplications reference Employees and LeaveTypes
-- PerformanceReviews reference Employees and Reviewers
-- WorkLogs reference Employees and Projects
-
 5. Frontend Design
- 5.1 Technology Stack
-
-- Next.js (React 19) for SSR and SPA features
-- Tailwind CSS for styling
-- Radix UI for accessible UI primitives
-
-5.2 Main UI Components
-
-- EmployeeManagement: List, search, add, edit, and view employees
-- LeaveManagement: Apply for leave, view balances, approve/reject requests
-- PerformanceTracking: Submit/view reviews, work logs, analytics
-- ReportsSection: Generate/download reports, view analytics dashboards
-- NotificationsPanel: View in-app notifications, mark as read
-- ThemeProvider: Light/dark mode support
-
-5.3 User Experience
-
-- Responsive, modern UI
-- Dialogs for CRUD operations
-- Tables with filtering, sorting, and pagination
-- Real-time notifications and feedback
-
 6. Reporting & Analytics
-
-- Backend: Aggregates data for reports (performance, leave, work hours, department stats)
-- Frontend: Visualizes analytics with charts, tables, and quick stats
-- Downloadable Reports: PDF/Excel generation via backend utilities
-
 7. Notifications & Scheduling
-
-- NotificationService: Handles in-app and email notifications for events (leave, reviews, reminders)
-- TaskScheduler: Uses node-cron for:
-  - Daily leave reminders
-  - Monthly leave balance updates
-  - Weekly notification cleanup
-
 8. Security
-
-- Authentication: JWT-based, with token expiry
-- Authorization: Role and permission checks on all sensitive endpoints
-- Validation: All inputs validated with Joi
-- Error Handling: Centralized, with user-friendly messages and stack traces in development
-
 9. Extensibility
-
-- Modular API routes and middleware
-- Component-based frontend for easy feature addition
-- Configurable roles/permissions via database
-
 10. Deployment & Operations
-
-- Environment Variables: .env for secrets and DB config
-- Scripts: For setup, seeding, and testing DB connection
-- Production Readiness: Secure headers, rate limiting, connection pooling
-
 11. Sample Stories of what the system does for each user
-
-- As an HR manager, I can add new employees and assign them to departments and roles.
-- As an employee, I can apply for leave and track my leave balance.
-- As a manager, I can review my team's performance and approve leave requests.
-- As an admin, I can generate reports on employee performance, leave usage, and work hours.
-- As any user, I receive notifications for important events and reminders.
-
-
 12. Future Enhancements
 
-- Self-service employee portal
-- Mobile app integration
-- Advanced analytics and dashboards
-- Integration with payroll and external HR systems
-- SSO and multi-factor authentication
+More in the Project proposal txt
